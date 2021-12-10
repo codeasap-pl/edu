@@ -2,11 +2,10 @@
 
 VAULT=${1:-my-vault}
 
-if mount | grep -qs /dev/mapper/my-vault; then
-	sudo umount /dev/mapper/my-vault
-	sudo cryptsetup luksClose my-vault
-	echo "Closed my-vault."
+if mount | grep -qs /dev/mapper/$VAULT; then
+	sudo umount /dev/mapper/$VAULT
+	sudo cryptsetup luksClose $VAULT
+	echo "Closed $VAULT."
 else
     echo "Not mounted"
 fi
-	
