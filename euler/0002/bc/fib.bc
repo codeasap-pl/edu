@@ -1,0 +1,19 @@
+define fib(limit) {
+       prev = 0;
+       curr = 1;
+       temp = 0;
+       total = 0;
+       while (temp <= limit) {
+       	     temp = prev + curr;
+	     if (temp % 2 == 0) {
+	     	total += temp;
+	     }
+	     prev = curr;
+	     curr = temp;
+       }
+       return total;
+}
+
+print "EULER: ", fib(4000000), "\n"
+# print "UNIVERSE:\n"
+# fib(3.28 * 10 ^ 80)
